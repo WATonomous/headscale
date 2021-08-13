@@ -1,0 +1,21 @@
+version: '3.3'
+
+# To use this config:
+# docker run --rm cmulk/wireguard-docker:alpine wg genkey > ./headscale-config/private.key
+# docker-compose up -d
+# docker-compose logs
+# On the client:
+# tailscale up -login-server http://headscale.watonomous.ca:8081
+
+services:
+    headscale:
+        ports:
+            - '8081:8080'
+        volumes:
+            - './headscale-config:/headscale-config'
+            - './derp.yaml:/headscale-config/derp.yaml'
+        restart: always
+        working_dir: /headscale-config
+        command: headscale serve
+        build: .
+
