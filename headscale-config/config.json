@@ -1,6 +1,7 @@
 {
     "server_url": "http://headscale.watonomous.ca:8081",
     "listen_addr": "0.0.0.0:8080",
+    "ip_prefix": "10.0.60.0/24",
     "private_key_path": "private.key",
     "derp_map_path": "derp.yaml",
     "ephemeral_node_inactivity_timeout": "30m",
